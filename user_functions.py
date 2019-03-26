@@ -19,10 +19,10 @@ def fix_cols(dat):
 
 def fix_number(col):
     try:
+        answer = answer.str.replace("^\.$", "")
         answer = pd.to_numeric(col.str.replace("[^0-9\.\-]", ""), errors = "coerce").fillna(0.0)
     except Exception as e:
-        # print(str(e))
-        answer = 0.0
+        print(str(e))
    
     return(answer)
 
